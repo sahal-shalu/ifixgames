@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Console Models</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div class="models-container">
+    <h1 id="brand-title">Models</h1>
+    <div id="models" class="models">
+      <!-- Models will be displayed here -->
+    </div>
+    <button onclick="goBack()" class="back-button">Back to Brands</button>
+  </div>
+  <script>
+    function getModelsByBrand(brand) {
+      const models = {
+        playstation: [
+          { name: 'PS1', img: 'path_to_ps1_image.jpg' },
+          { name: 'PS2', img: 'path_to_ps2_image.jpg' },
+          { name: 'PS3', img: 'path_to_ps3_image.jpg' },
+          { name: 'PS4', img: 'path_to_ps4_image.jpg' },
+          { name: 'PS5', img: 'path_to_ps5_image.jpg' }
+        ],
+        xbox: [
+          { name: 'Xbox', img: 'path_to_xbox_image.jpg' },
+          { name: 'Xbox 360', img: 'path_to_xbox_360_image.jpg' },
+          { name: 'Xbox One', img: 'path_to_xbox_one_image.jpg' },
+          { name: 'Xbox Series X', img: 'path_to_xbox_series_x_image.jpg' }
+        ],
+        nintendo: [
+          { name: 'Nintendo Switch', img: 'path_to_nintendo_switch_image.jpg' },
+          { name: 'Nintendo Switch Lite', img: 'path_to_nintendo_switch_lite_image.jpg' },
+          { name: 'Nintendo Switch OLED', img: 'path_to_nintendo_switch_oled_image.jpg' }
+        ]
+      };
+      return models[brand] || [];
+    }
+
+    function displayModels() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const brand = urlParams.get('brand');
+      const modelsContainer = document.getElementById('models');
+      const brandTitle = document.getElementById('brand-title');
+
+      if (brand) {
+        brandTitle.textContent = `${brand.charAt(0).toUpperCase() + brand.slice(1)} Models`;
+        const models = getModelsByBrand(brand);
+        modelsContainer.innerHTML = models.map(model => `
+          <div class="card" onclick="navigateToDetail('${brand}', '${model.name}')">
+            <img src="${model.img}" alt="${model.name}">
+            <h2>${model.name}</h2>
+          </div>
+        `).join('');
+      } else {
+        brandTitle.textContent = 'No Brand Selected';
+      }
+    }
+
+    function navigateToDetail(brand, model) {
+      location.href = `detail.html?brand=${brand}&model=${model}`;
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    window.onload = displayModels;
+  </script>
+</body>
+</html>

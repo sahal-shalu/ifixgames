@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Detail</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <div class="detail-container">
+    <h1 id="model-title">Model Detail</h1>
+    <div id="model-detail" class="model-detail">
+      <!-- Model detail will be displayed here -->
+    </div>
+    <button onclick="goBack()" class="back-button">Back to Models</button>
+  </div>
+  <script>
+    function getModelDetail(brand, model) {
+      const details = {
+        playstation: {
+          PS1: { img: 'path_to_ps1_image.jpg', description: 'The first PlayStation console, released in 1994.' },
+          PS2: { img: 'path_to_ps2_image.jpg', description: 'The PlayStation 2, released in 2000.' },
+          PS3: { img: 'path_to_ps3_image.jpg', description: 'The PlayStation 3, released in 2006.' },
+          PS4: { img: 'path_to_ps4_image.jpg', description: 'The PlayStation 4, released in 2013.' },
+          PS5: { img: 'path_to_ps5_image.jpg', description: 'The PlayStation 5, released in 2020.' }
+        },
+        xbox: {
+          Xbox: { img: 'path_to_xbox_image.jpg', description: 'The original Xbox, released in 2001.' },
+          Xbox360: { img: 'path_to_xbox_360_image.jpg', description: 'The Xbox 360, released in 2005.' },
+          XboxOne: { img: 'path_to_xbox_one_image.jpg', description: 'The Xbox One, released in 2013.' },
+          XboxSeriesX: { img: 'path_to_xbox_series_x_image.jpg', description: 'The Xbox Series X, released in 2020.' }
+        },
+        nintendo: {
+          'Nintendo Switch': { img: 'path_to_nintendo_switch_image.jpg', description: 'The Nintendo Switch, released in 2017.' },
+          'Nintendo Switch Lite': { img: 'path_to_nintendo_switch_lite_image.jpg', description: 'The Nintendo Switch Lite, released in 2019.' },
+          'Nintendo Switch OLED': { img: 'path_to_nintendo_switch_oled_image.jpg', description: 'The Nintendo Switch OLED, released in 2021.' }
+        }
+      };
+      return details[brand][model] || {};
+    }
+
+    function displayModelDetail() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const brand = urlParams.get('brand');
+      const model = urlParams.get('model');
+      const modelTitle = document.getElementById('model-title');
+      const modelDetailContainer = document.getElementById('model-detail');
+
+      if (brand && model) {
+        const detail = getModelDetail(brand, model);
+        modelTitle.textContent = `${model}`;
+        modelDetailContainer.innerHTML = `
+          <div class="card">
+            <img src="${detail.img}" alt="${model}">
+            <h2>${model}</h2>
+            <p>${detail.description}</p>
+          </div>
+        `;
+      } else {
+        modelTitle.textContent = 'No Model Selected';
+        modelDetailContainer.innerHTML = '';
+      }
+    }
+
+    function goBack() {
+      window.history.back();
+    }
+
+    window.onload = displayModelDetail;
+  </script>
+</body>
+</html>
