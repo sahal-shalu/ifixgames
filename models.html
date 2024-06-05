@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Console Models</title>
+  <title>iFixGames</title>
+    <link rel="icon" type="image/png" href="/img/favicon.ico">
   <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
@@ -18,23 +19,59 @@
     function getModelsByBrand(brand) {
       const models = {
         playstation: [
-          { name: 'PS1', img: 'path_to_ps1_image.jpg' },
-          { name: 'PS2', img: 'path_to_ps2_image.jpg' },
-          { name: 'PS3', img: 'path_to_ps3_image.jpg' },
-          { name: 'PS4', img: 'path_to_ps4_image.jpg' },
-          { name: 'PS5', img: 'path_to_ps5_image.jpg' }
+          { name: 'Playstation 4 Original Edition', img: '/img/ps 4 org edi.png' },
+          { name: 'Playstation 4 Slim', img: '/img/ps 4 slim.png' },
+          { name: 'Playstation 4 Pro', img: '/img/ps 4 pro.png' },
+          { name: 'Playstation 5', img: '/img/ps5.png' },
+          { name: 'Playstation 5 Digital', img: '/img/ps 5 digital.png' },
+          { name: 'Playstation 5 Slim DVD Version', img: '/img/ps 4 slm dvd vers.png' },
+          { name: 'Playstation 5 Slim Digital', img: '/img/ps 5 slm digital.png' },
+          { name: 'Playstation Portal Remote Player', img: '/img/ps portal remote player.png' },
         ],
         xbox: [
-          { name: 'Xbox', img: 'path_to_xbox_image.jpg' },
-          { name: 'Xbox 360', img: 'path_to_xbox_360_image.jpg' },
-          { name: 'Xbox One', img: 'path_to_xbox_one_image.jpg' },
-          { name: 'Xbox Series X', img: 'path_to_xbox_series_x_image.jpg' }
+          { name: 'Xbox One', img: '/img/xbox one.png' },
+          { name: 'Xbox One S', img: '/img/xbox one s.png' },
+          { name: 'Xbox One S Digital', img: '/img/xbox one s digital.png' },
+          { name: 'Xbox One X', img: '/img/xbox one x.png' },
+          { name: 'Xbox Series S', img: '/img/xbox series s.png' },
+          { name: 'Xbox Series X', img: '/img/xbox sereies x.png' }
         ],
         nintendo: [
-          { name: 'Nintendo Switch', img: 'path_to_nintendo_switch_image.jpg' },
-          { name: 'Nintendo Switch Lite', img: 'path_to_nintendo_switch_lite_image.jpg' },
-          { name: 'Nintendo Switch OLED', img: 'path_to_nintendo_switch_oled_image.jpg' }
-        ]
+          { name: 'Nintendo Switch', img: '/img/nintendo switch.png' },
+          { name: 'Nintendo Switch Lite', img: '/img/nintendo switch lite.png' },
+          { name: 'Nintendo Switch OLED', img: '/img/nintendo switch oled.png' }
+        ],
+        otherconsoles: [
+          { name: 'VALVE Steam Deck', img: './img/VALVE Steam Deck.png' },
+          { name: 'VALVE Steam Deck OLED', img: '/img/ALVE Steam Deck OLED.png' },
+          { name: 'Asus Rog Ally', img: '/img/Asus Rog Ally.png' },
+          { name: 'MSI CLAW A1M', img: '/img/MSI CLAW A1M.png' },
+          { name: 'Lenovo Legion Go', img: '/img/Lenovo Legion Go.png' },
+          { name: 'ANBERIC RG556', img: '/img/ANBERIC RG556.png' },
+          { name: 'Razer Kishi V2 Pro', img: '/img/Razer Kishi V2 Pro.png' },
+          { name: 'AOKZOE A1', img: '/img/AOKZOE A1.png' },
+          { name: 'Logitech G Game pad', img: '/img/Logitech G Game pad.png' },
+          { name: 'Oculus Quest VR', img: '/img/Oculus Quest VR.png' },
+        ],
+        controllers: [
+          { name: 'DualShock 4', img: '/img/DualShock 4.png' },
+          { name: 'DualSense', img: '/img/DualSense.png' },
+          { name: 'Xbox Wireless Controller', img: '/img/Xbox Wireless Controller.png' },
+          { name: 'Joy-Con, Pro Controller', img: '/img/Joy-Con, Pro Controller.png' },
+          { name: 'Logitech G Game Pad', img: '/img/Logitech G Game pad.png' },
+          { name: 'Oculus Touch Controllers', img: '/img/Oculus Touch Controllers.png' },
+        ],
+        otherservices: [
+          { name: 'All-in-One Computers', img: '/img/all in one pc.png' },
+          { name: 'Laptop', img: '/img/laptop.png' },
+          { name: 'Gaming Laptop', img: '/img/gamiglaptop.png' },
+          { name: 'Gaming PC', img: '/img/gamingpc.png' },
+          { name: 'Desktop', img: '/img/desktops.png' },
+          { name: 'Printer', img: '/img/Printers.png' },
+          { name: 'Projector', img: '/img/Projectors.png' },
+          { name: 'POS Machine', img: '/img/pos machine.png' },
+  
+        ],
       };
       return models[brand] || [];
     }
@@ -64,7 +101,7 @@
     }
 
     function goBack() {
-      window.history.back();
+      window.location.href='index.html#services';
     }
 
     window.onload = displayModels;
